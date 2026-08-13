@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Proposal:
 
-## Getting Started
+screenshots 
 
-First, run the development server:
+Workout timer
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+On homepage, choose between workouts. 
+when clicked "start workout" the workout shows (activeWorkout) with a timer. 
+click start to start the countdown timer.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+when started, the button changes text to "lets go"!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+when workout is completed, timer is 0, a text with "you did it" shows up, and a reset button. 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+click the reset button to go back to initial timer countdown. click start to do it again. 
 
-## Learn More
+click the "go back" button to go back to the homepage, with all the workout selections. 
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
