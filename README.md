@@ -1,8 +1,8 @@
-Proposal:
+# Proposal:
 
-screenshots 
 
-Workout timer
+
+## Workout timer
 
 On homepage, choose between workouts. 
 when clicked "start workout" the workout shows (activeWorkout) with a timer. 
@@ -16,3 +16,8 @@ click the reset button to go back to initial timer countdown. click start to do 
 
 click the "go back" button to go back to the homepage, with all the workout selections. 
 
+
+![homepage](public/images/home.png)
+![timer](public/images/counting.png)
+![started counting](public/images/timer.png)
+![timer ends](public/images/victory.png)
