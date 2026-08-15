@@ -5,16 +5,16 @@
 ## Workout timer
 
 On homepage, choose between workouts. 
-when clicked "start workout" the workout shows (activeWorkout) with a timer. 
+When clicked "start workout" the workout shows (activeWorkout) with a timer. 
 click start to start the countdown timer.
 
-when started, the button changes text to "lets go"!
+When started, the button changes text to "lets go"!
 
-when workout is completed, timer is 0, a text with "you did it" shows up, and a reset button. 
+When workout is completed, timer is 0 and a text with "you did it" shows up, and a reset button. 
 
-click the reset button to go back to initial timer countdown. click start to do it again. 
+Click the reset button to go back to initial timer countdown. Click start to do the workout again again. 
 
-click the "go back" button to go back to the homepage, with all the workout selections. 
+Click the "go back" button to go back to the homepage, with all the workout selections. 
 
 
 ![homepage](public/images/home.png)
