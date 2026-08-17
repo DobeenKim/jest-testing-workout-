@@ -44,6 +44,7 @@ describe("The timer works", () => {
 
     expect(newTime).toBeInTheDocument()
 
+    jest.useRealTimers()
   })
 
   test("Shows victory screen at 0 sec and reset button works correctly", () => {
@@ -83,5 +84,32 @@ describe("The timer works", () => {
     const startTime = screen.getByText(1)
     expect(startTime).toBeInTheDocument()
 
+    jest.useRealTimers()
+  })
+
+  test("The timer does not count below 0", () => {
+    jest.useFakeTimers()
+    render(<Timer startTime={1} />)
+
+    let startButton = screen.getByRole("button", { "name": /start/i })
+
+    fireEvent.click(startButton)
+
+    act(() => {
+      jest.advanceTimersByTime(1000)
+    })
+
+    const time = screen.getByText(0)
+    expect(time).toBeInTheDocument()
+
+    act(() => {
+      jest.advanceTimersByTime(2000)
+    })
+
+    const minusTime = screen.queryByText(-1)
+    expect(minusTime).not.toBeInTheDocument()
+    expect(time).toBeInTheDocument()
+
+    jest.useRealTimers()
   })
 })

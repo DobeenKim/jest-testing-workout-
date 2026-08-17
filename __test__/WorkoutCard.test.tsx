@@ -6,6 +6,14 @@ describe("The workout card works ", () => {
   const mockFunction = jest.fn()
   const mockWorkout = { id: 1, name: "this is a mock name", workTime: 10 }
 
+  test("Renders the workoutCard", () => {
+    render(<WorkoutCard handleClick={mockFunction} workout={mockWorkout} />)
+
+    const card = screen.getByTestId("workout-card")
+
+    expect(card).toBeInTheDocument()
+  })
+
   test("Every card should have a title name with h3", () => {
     render(<WorkoutCard handleClick={mockFunction} workout={mockWorkout} />)
 
@@ -21,6 +29,12 @@ describe("The workout card works ", () => {
 
     expect(seconds).toHaveTextContent(`Work time: ${mockWorkout.workTime} seconds`)
 
+  })
+
+  test("The handleClick is not called before the button is clicked", () => {
+    render(<WorkoutCard handleClick={mockFunction} workout={mockWorkout} />)
+
+    expect(mockFunction).not.toHaveBeenCalled()
   })
 
   test("The button calls the function when clicked", () => {
