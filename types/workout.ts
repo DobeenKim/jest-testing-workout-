@@ -4,6 +4,7 @@ export interface Workout {
   workTime: number, 
 }
 
-export interface WorkoutSelection {
-  handleClick : () => void
+export interface workProps {
+    workout: Workout,
+    handleClick:(workout:Workout) => void
 }
