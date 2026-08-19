@@ -7,7 +7,7 @@ const workoutCard = ({workout,handleClick}:workProps) => {
             <div data-testid="workout-card">
                 <h3>{workout.name}</h3>
                 <p data-testid="workout-time">Work time: {workout.workTime} seconds</p>
-                <button  onClick={()=> handleClick(workout)}>Start Workout</button>
+                <button  onClick={()=> handleClick(workout)}>Start Workout </button>
             </div>
         </div>
     )
