@@ -3,3 +3,7 @@ export interface Workout {
   name: string,
   workTime: number, 
 }
+
+export interface WorkoutSelection {
+  handleClick : () => void
+}
