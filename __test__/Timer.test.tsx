@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import Timer from '.'
+import Timer from '../component/Timer'
 import { act } from 'react'
 
 describe("The timer works", () => {
