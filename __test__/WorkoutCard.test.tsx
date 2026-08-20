@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import WorkoutCard from '../component/workoutCard'
+import WorkoutCard from '../component/WorkoutCard'
 
 describe("The workout card works ", () => {
 
