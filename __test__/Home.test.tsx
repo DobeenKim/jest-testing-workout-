@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import Home from './page'
+import Home from '../app/page'
 
 
 describe("the homepage works ok", () => {
