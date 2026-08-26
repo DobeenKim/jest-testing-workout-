@@ -6,7 +6,7 @@ describe("The workout selection works ok", () => {
 
   test("The subtitle should render correctly with an h2 and specific text", () => {
     const mockFunction = jest.fn()
-    render(<WorkoutSelection handleClick={mockFunction} />)
+    render(<WorkoutSelection onSelect={mockFunction} />)
 
     const subtitle = screen.getByRole("heading", { level: 2, "name": /choose your workout/i })
 
@@ -16,7 +16,7 @@ describe("The workout selection works ok", () => {
 
   test("6 workout cards are displayed ", () => {
     const mockFunction = jest.fn()
-    render(<WorkoutSelection handleClick={mockFunction} />)
+    render(<WorkoutSelection onSelect={mockFunction} />)
 
     const workoutSelection = screen.getByTestId("workout-selection")
 
@@ -29,7 +29,7 @@ describe("The workout selection works ok", () => {
 
   test("The correct workout is displayed", () => {
     const mockFunction = jest.fn()
-    render(<WorkoutSelection handleClick={mockFunction} />)
+    render(<WorkoutSelection onSelect={mockFunction} />)
 
     const workoutSelection = screen.getByTestId("workout-selection")
 
