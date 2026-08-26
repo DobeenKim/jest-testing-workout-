@@ -1,6 +1,6 @@
 import { Workout } from "../../types/workout"
 import {workouts} from "../../data/workouts"
-import WorkoutCard from "../WorkoutCard"
+import WorkoutCard from "../../component/WorkoutCard"
 
 interface workoutSelectionProps {
     onSelect : (workout:Workout)=> void
