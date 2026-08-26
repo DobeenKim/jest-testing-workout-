@@ -112,4 +112,42 @@ describe("The timer works", () => {
 
     jest.useRealTimers()
   })
+
+  test ("after time out, the timer stops at 0 and can reset to start again", () => {
+    jest.useFakeTimers()
+    render(<Timer startTime={1}/>)
+
+  const button = screen.getByRole("button", { name: /start/i });
+  expect(screen.getByText("1")).toBeInTheDocument();
+
+    fireEvent.click(button)
+    act(()=> {
+      jest.advanceTimersByTime(1000)
+    })
+
+    expect(screen.getByText("0")).toBeInTheDocument()
+    expect(screen.getByText("YOU DID IT!")).toBeInTheDocument()
+
+    const resetBtn = screen.getByRole("button", {name:/reset/i})
+    expect(resetBtn).toBeInTheDocument()
+
+    act(()=> {
+      jest.advanceTimersByTime(2000)
+    })
+
+    expect(screen.getByText("0")).toBeInTheDocument()
+    expect(screen.queryByText("-1")).not.toBeInTheDocument()
+
+    fireEvent.click(resetBtn)
+    expect(screen.getByText("1")).toBeInTheDocument()
+    expect(screen.queryByText("YOU DID IT!")).not.toBeInTheDocument()
+    expect(screen.getByRole("button", {name:/start/i})).toBeInTheDocument()
+
+    jest.useRealTimers()
+
+
+
+
+
+  })
 })

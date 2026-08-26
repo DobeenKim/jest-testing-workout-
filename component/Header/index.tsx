@@ -1,7 +1,7 @@
 const Header = () => {
     return (
-        <div>
-            <h1>Workout timer</h1>
+        <div className="w-full text-center p-4">
+            <h1 className="text-3xl">Workout timer</h1>
         </div>
     )
 }

@@ -11,12 +11,13 @@ const Timer = ({startTime}:startTimeProps) => {
     const [victory, setVictory] = useState<boolean>(false)
 
     useEffect(()=> {
-        if(isStarted) { 
-            setInterval(()=> {//몇초마다 반복할지
-                setTime((prev) => prev - 1)
-            },1000)
-        }
-    },[isStarted])
+        if(!isStarted || time <= 0) return
+        const timer = setTimeout(() => {
+            setTime((prev) => prev -1 )
+        },1000)
+
+        return ()=> clearTimeout(timer)
+    },[isStarted,time])
 
     const handleReset = () => {
         if(time === 0){
@@ -29,15 +30,26 @@ const Timer = ({startTime}:startTimeProps) => {
 
     const getButtonText = (): string => {
     if (time === 0) return "RESET"
-    if (isStarted) return "LETS GO"
+    if (isStarted) return "LETS GO!"
     return "start";
     }
 
+    const getButtonColor = () => {
+        if (time === 0) {
+            return "rounded-xl bg-amber-300 p-3 cursor-pointer text-white"
+        }
+        if (isStarted) {
+            return "text-amber-300 font-bold"
+        }
+        return "rounded-xl bg-amber-300 p-3 cursor-pointer text-white"
+            
+    }
+
     return (
-        <div>
-            <span>{time}</span>
-            {time === 0 && <p>YOU DID IT!</p>}
-            <button onClick={handleReset}>{getButtonText()}</button>
+        <div className="flex flex-col gap-4">
+            <span className="text-amber-300 text-5xl p-5 rounded-full border-6 border-amber-300 w-35 h-35 flex justify-center items-center mx-auto">{time}</span>
+            {time === 0 && <p className="text-2xl text-green-500 font-bold">YOU DID IT!</p>}
+            <button className={`text-xl p-3 mx-auto ${getButtonColor()}`} onClick={handleReset}>{getButtonText()}</button>
         </div>
     )
 }
