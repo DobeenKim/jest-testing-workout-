@@ -1,5 +1,5 @@
 import { render, screen, within } from '@testing-library/react'
-import WorkoutSelection from '../component/WorkoutSelection'
+import WorkoutSelection from '../component/workoutSelection'
 import { workouts } from '@/data/workouts'
 
 describe("The workout selection works ok", () => {

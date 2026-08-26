@@ -1,7 +1,7 @@
 'use client'
 import Header from "../component/Header";
 import ActiveWorkout from "../component/ActiveWorkout";
-import WorkoutSelection from "../component/WorkoutSelection";
+import WorkoutSelection from "../component/workoutSelection";
 import { useState } from "react";
 import { Workout } from "@/types/workout";
 
