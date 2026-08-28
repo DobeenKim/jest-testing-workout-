@@ -8,7 +8,6 @@ interface startTimeProps {
 const Timer = ({startTime}:startTimeProps) => {
     const [isStarted, setIsStarted] = useState<boolean>(false) //사용자가 시작 버튼을 눌렀는가?
     const [time, setTime] = useState(startTime) //남은시간
-    const [victory, setVictory] = useState<boolean>(false)
 
     useEffect(()=> {
         if(!isStarted || time <= 0) return
@@ -18,6 +17,8 @@ const Timer = ({startTime}:startTimeProps) => {
 
         return ()=> clearTimeout(timer)
     },[isStarted,time])
+
+    const progressPercent = ((startTime - time) /startTime) *100
 
     const handleReset = () => {
         if(time === 0){
@@ -46,8 +47,22 @@ const Timer = ({startTime}:startTimeProps) => {
     }
 
     return (
-        <div className="flex flex-col gap-4">
-            <span className="text-amber-300 text-5xl p-5 rounded-full border-6 border-amber-300 w-35 h-35 flex justify-center items-center mx-auto">{time}</span>
+        <div className="flex flex-col gap-4 w-full">
+            <div
+                className="relative flex items-center justify-center mx-auto rounded-full p-2 transition-all duration-1000 ease-linear"
+                role="progressbar"
+                style={{
+                    width: "160px",
+                    height: "160px",
+                    background: `conic-gradient(#fcd34d ${progressPercent}%, #e2e8f0 0%)`,
+                }}
+            >
+                <div className="flex h-full w-full items-center justify-center rounded-full bg-white">
+                    <span className="text-5xl font-bold text-amber-400">
+                        {time}
+                    </span>
+                </div>
+            </div>
             {time === 0 && <p className="text-2xl text-green-500 font-bold">YOU DID IT!</p>}
             <button className={`text-xl p-3 mx-auto ${getButtonColor()}`} onClick={handleReset}>{getButtonText()}</button>
         </div>

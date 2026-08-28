@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, render, screen } from '@testing-library/react'
 import Timer from '../component/Timer'
 import { act } from 'react'
 
@@ -144,10 +144,20 @@ describe("The timer works", () => {
     expect(screen.getByRole("button", {name:/start/i})).toBeInTheDocument()
 
     jest.useRealTimers()
+  })
 
+  test("Timer ProgressBar Test", () => {
+    jest.useFakeTimers()
 
+    render(<Timer startTime={4}/>)
 
+    fireEvent.click(screen.getByText("start"))
 
+    act(()=> {
+      jest.advanceTimersByTime(1000)
+    })
 
+    const progressBar = screen.getByRole("progressbar")
+    expect(progressBar).toHaveStyle({height:"160px"})
   })
 })
