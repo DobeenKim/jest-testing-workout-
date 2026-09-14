@@ -24,3 +24,5 @@ Click the "go back" button to go back to the homepage, with all the workout sele
 ![started counting](public/images/timer.png)
 ---
 ![timer ends](public/images/victory.png)
+
+
